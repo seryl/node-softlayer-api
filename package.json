@@ -1,0 +1,19 @@
+
+{
+  "name": "node-softlayer-api",
+  "version": "0.0.1",
+  "author": "Josh Toft <joshtoft@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seryl/node-softlayer-api.git"
+  },
+  "dependencies": {
+    "request": "2.20.0"
+  },
+  "devDependencies": {
+    "mocha": "1.9.0",
+    "chai": "1.5.0",
+    "coffee-script": "1.6.2"
+  },
+  "scripts": { "pretest": "cake build", "prepublish": "cake build" }
+}
