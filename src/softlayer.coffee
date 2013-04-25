@@ -9,7 +9,8 @@ class Softlayer
   @param {String} @username Softlayer api username
   @param {String} @api_key Softlayer api key
   ###
-  constructor: (@username, @api_key) ->
+  constructor: (username, @api_key) ->
+    @username = encodeURIComponent(username)
     @url = "api.softlayer.com/rest/v3"
 
   ###
