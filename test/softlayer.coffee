@@ -26,3 +26,13 @@ describe 'Softlayer', ->
     svc.sl.api_key.should.equal sl_info.api_key
     svc.service.should.equal 'SoftLayer_Account'
     done()
+
+  it "should get base sl object", (done) ->
+    dup_sl =
+      url: sl.url
+      username: 
+      api_key: 
+    svc = new SoftlayerService(dup_sl, 'SoftLayer_Account')
+    rest.get svc.request_url('Hardware'), (err, res) ->
+      console.log resp
+    done()
