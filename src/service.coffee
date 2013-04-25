@@ -1,8 +1,26 @@
+rest = require 'request'
+url = require 'url'
+
+###
+The Softlayer service class.
+###
 class SoftlayerService
-  constructor: (@username, @api_key, @service) ->
 
-  object_mask: (mask, api_call) ->
-    console.log "mask: #{mask}"
-    console.log "api_call: #{api_call}"
+  ###
+  @param {Object} sl The base softlayer configuration
+  @param {String} service The name of the service to interact with
+  ###
+  constructor: (@sl, @service) ->
 
-exports = SoftlayerService
+  ###
+  Returns a new instance of the given service.
+
+  @param {String} svc The service object to create
+  @return {Object} An instance of the given service
+  ###
+  request_url: (property) ->
+    url.resolve(
+      "https://#{@sl.username}:#{@sl.api_key}@#{@sl.url}/",
+      [@service, "#{property}.json"].join('/') )
+
+module.exports = SoftlayerService
